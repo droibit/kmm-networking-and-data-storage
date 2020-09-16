@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.github.droibit.sample.kmmapp.shared.entity.RocketLaunch
 
-class LaunchesRvAdapter(private val launched: List<RocketLaunch>) :
+class LaunchesRvAdapter() :
     ListAdapter<RocketLaunch, LaunchViewHolder>(
         ITEM_CALLBACK
     ) {
@@ -22,7 +22,7 @@ class LaunchesRvAdapter(private val launched: List<RocketLaunch>) :
     }
 
     override fun onBindViewHolder(holder: LaunchViewHolder, position: Int) {
-        holder.bindData(launched[position])
+        holder.bindData(getItem(position))
     }
 
     companion object {
