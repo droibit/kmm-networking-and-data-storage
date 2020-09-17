@@ -35,7 +35,7 @@ data class Rocket(
 
 @Serializable
 data class Links(
-    @SerialName("rocket_type")
+    @SerialName("mission_patch")
     val missionPatchUrl: String?,
     @SerialName("article_link")
     val articleUrl: String?

@@ -1,6 +1,7 @@
 package com.github.droibit.sample.kmmapp.androidApp
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -55,10 +56,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             kotlin.runCatching {
                 sdk.getLaunches(needReload)
             }.onSuccess {
+                Log.d(BuildConfig.BUILD_TYPE, "fetched ${it.size} launch(es).")
                 launchesRvAdapter.submitList(it)
             }.onFailure {
+                Log.e(BuildConfig.BUILD_TYPE, "error", it)
                 Toast.makeText(this@MainActivity, it.localizedMessage, Toast.LENGTH_SHORT).show()
             }
+            progressBarView.isVisible = false
         }
     }
 }
